@@ -144,7 +144,7 @@ a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:.2em}
 }
 
 /* Hero */
-.hero{padding-block:clamp(36px,6vw,88px) var(--gap-section)}
+.hero{padding-block:clamp(36px,6vw,88px) clamp(48px,6vw,80px)}
 .hero-head{container-type:inline-size;display:grid;gap:clamp(14px,2vw,22px)}
 .nothing{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:.14em;align-items:center;font-size:clamp(3.25rem,15.5cqi,11rem)}
 .nothing-word{font-family:var(--font-display);font-stretch:75%;font-weight:800;font-size:1em;line-height:.8;text-transform:uppercase;letter-spacing:-.005em;white-space:nowrap}
@@ -176,6 +176,30 @@ a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:.2em}
 @keyframes near-r{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
 @keyframes near-l{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
 @keyframes swell{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+
+/* Dedication in Morse */
+.ded-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px 48px;padding-block:clamp(40px,6vw,72px);border-top:1px solid var(--line)}
+@media (min-width:900px){.ded-grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}}
+.ded-head{display:grid;gap:6px;align-content:start}
+.ded-note{font-size:var(--t-small);font-style:italic;color:var(--ink-2)}
+.ded-body{display:grid;gap:22px;justify-items:start;min-width:0}
+.morse{display:flex;flex-wrap:wrap;align-items:center;justify-self:stretch;min-width:0;gap:16px 2.1em;font-size:15px;line-height:1}
+.mw{display:inline-flex;align-items:center;gap:.85em}
+.ml{display:inline-flex;align-items:center;gap:.3em;transition:transform .15s ease-out}
+.morse i{display:block;flex:none;height:.55em;border-radius:999px;transition:opacity .2s}
+.morse .dot{width:.55em;background:radial-gradient(circle at 35% 30%,var(--sphere-hi),var(--sphere-lo) 80%)}
+.morse .dash{width:1.65em;background:linear-gradient(180deg,var(--sphere-hi),var(--sphere-lo))}
+.morse.is-playing i{opacity:.28}
+.morse.is-playing .done i,.morse.is-playing .on i{opacity:1}
+.morse .on{transform:scale(1.3)}
+.ded-text{font-size:var(--t-lead);font-style:italic;line-height:1.5;max-width:46ch}
+@media (max-width:600px){
+  .morse{font-size:11px;gap:12px 1.8em}
+  .mw{flex-wrap:wrap;row-gap:12px;column-gap:.7em;max-width:100%}
+  .ml{gap:.25em}
+  .morse .dash{width:1.25em}
+}
+@media (prefers-reduced-motion:reduce){.ml{transition:none}.morse .on{transform:none}}
 
 /* Read this first */
 .first-grid{display:grid;gap:44px}
@@ -425,6 +449,21 @@ a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:.2em}
           </svg>
           <figcaption><span class="ta" lang="ta">ஃ</span> The three points. When I and you stand under love, “we” becomes possible.</figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedication -->
+  <section class="dedication" aria-labelledby="ded-h">
+    <div class="wrap ded-grid">
+      <div class="ded-head">
+        <h2 class="eyebrow" id="ded-h">Dedication</h2>
+        <p class="ded-note">Written in Morse code</p>
+      </div>
+      <div class="ded-body">
+        <p class="morse" id="morse" aria-hidden="true"><span class="mw"><span class="ml" data-c="-" title="T"><i class="dash"></i></span><span class="ml" data-c="---" title="O"><i class="dash"></i><i class="dash"></i><i class="dash"></i></span></span><span class="mw"><span class="ml" data-c=".-.." title="L"><i class="dot"></i><i class="dash"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="---" title="O"><i class="dash"></i><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c=".-." title="R"><i class="dot"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="..." title="S"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="...." title="H"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c=".." title="I"><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="...-" title="V"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c=".-" title="A"><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c="--..--" title=","><i class="dash"></i><i class="dash"></i><i class="dot"></i><i class="dot"></i><i class="dash"></i><i class="dash"></i></span></span><span class="mw"><span class="ml" data-c="-" title="T"><i class="dash"></i></span><span class="ml" data-c="...." title="H"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="." title="E"><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c=".----" title="1"><i class="dot"></i><i class="dash"></i><i class="dash"></i><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c="---.." title="8"><i class="dash"></i><i class="dash"></i><i class="dash"></i><i class="dot"></i><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="..." title="S"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c=".." title="I"><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="...." title="H"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c=".-" title="A"><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c=".-." title="R"><i class="dot"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="..." title="S"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="--..--" title=","><i class="dash"></i><i class="dash"></i><i class="dot"></i><i class="dot"></i><i class="dash"></i><i class="dash"></i></span></span><span class="mw"><span class="ml" data-c=".-" title="A"><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c="-." title="N"><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="--" title="M"><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c="..-" title="U"><i class="dot"></i><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c=".-." title="R"><i class="dot"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="..-" title="U"><i class="dot"></i><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c="--." title="G"><i class="dash"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c=".-" title="A"><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c="-." title="N"><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="--..--" title=","><i class="dash"></i><i class="dash"></i><i class="dot"></i><i class="dot"></i><i class="dash"></i><i class="dash"></i></span></span><span class="mw"><span class="ml" data-c=".--." title="P"><i class="dot"></i><i class="dash"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c=".-." title="R"><i class="dot"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c=".." title="I"><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="-." title="N"><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="-.-." title="C"><i class="dash"></i><i class="dot"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="." title="E"><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c=".-" title="A"><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c="-." title="N"><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="-.-." title="C"><i class="dash"></i><i class="dot"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="---" title="O"><i class="dash"></i><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c="--" title="M"><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c="--" title="M"><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c=".-" title="A"><i class="dot"></i><i class="dash"></i></span><span class="ml" data-c="-." title="N"><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="." title="E"><i class="dot"></i></span><span class="ml" data-c=".-." title="R"><i class="dot"></i><i class="dash"></i><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="---" title="O"><i class="dash"></i><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c="..-." title="F"><i class="dot"></i><i class="dot"></i><i class="dash"></i><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="-" title="T"><i class="dash"></i></span><span class="ml" data-c="...." title="H"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="." title="E"><i class="dot"></i></span></span><span class="mw"><span class="ml" data-c="--." title="G"><i class="dash"></i><i class="dash"></i><i class="dot"></i></span><span class="ml" data-c="---" title="O"><i class="dash"></i><i class="dash"></i><i class="dash"></i></span><span class="ml" data-c="-.." title="D"><i class="dash"></i><i class="dot"></i><i class="dot"></i></span><span class="ml" data-c="..." title="S"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></span></p>
+        <p class="ded-text">To Lord Shiva, the 18 Siddhars, and Murugan, prince and commander of the gods.</p>
+        <button class="btn btn-line" type="button" id="morse-play">Listen in Morse</button>
       </div>
     </div>
   </section>
@@ -1220,6 +1259,93 @@ a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:.2em}
     setText("today-num", li.getAttribute("data-n"));
     setText("today-name", li.querySelector(".b-name").textContent);
     setText("today-text", li.querySelector(".b-text").textContent);
+  }
+
+  /* ---------- Dedication in Morse ---------- */
+  var mBtn = document.getElementById("morse-play");
+  var mRoot = document.getElementById("morse");
+  var mCtx = null;
+  var mRaf = 0;
+  var MORSE_LABEL = "Listen in Morse";
+
+  function morseReset() {
+    if (mRaf) window.cancelAnimationFrame(mRaf);
+    mRaf = 0;
+    var ctx = mCtx;
+    mCtx = null;
+    if (ctx) { try { ctx.close(); } catch (e) {} }
+    mRoot.classList.remove("is-playing");
+    Array.prototype.forEach.call(mRoot.querySelectorAll(".ml"), function (l) {
+      l.classList.remove("on");
+      l.classList.remove("done");
+    });
+    mBtn.textContent = MORSE_LABEL;
+  }
+
+  function morsePlay() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) {
+      mBtn.textContent = "This browser can't play the sound";
+      mBtn.disabled = true;
+      return;
+    }
+    var ctx;
+    try { ctx = new AC(); } catch (e) { return; }
+    mCtx = ctx;
+    if (ctx.resume) { try { ctx.resume(); } catch (e) {} }
+    var unit = 0.065, ramp = 0.006, peak = 0.22;
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = 620;
+    gain.gain.setValueAtTime(0, ctx.currentTime);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    var start = ctx.currentTime + 0.12, t = start, timeline = [];
+    var words = mRoot.querySelectorAll(".mw");
+    for (var w = 0; w < words.length; w++) {
+      var letters = words[w].querySelectorAll(".ml");
+      for (var l = 0; l < letters.length; l++) {
+        var code = letters[l].getAttribute("data-c") || "";
+        var t0 = t;
+        for (var s = 0; s < code.length; s++) {
+          var len = code.charAt(s) === "." ? unit : unit * 3;
+          gain.gain.setValueAtTime(0, t);
+          gain.gain.linearRampToValueAtTime(peak, t + ramp);
+          gain.gain.setValueAtTime(peak, t + len - ramp);
+          gain.gain.linearRampToValueAtTime(0, t + len);
+          t += len;
+          if (s < code.length - 1) t += unit;
+        }
+        timeline.push({ el: letters[l], t0: t0, t1: t });
+        if (l < letters.length - 1) t += unit * 3;
+      }
+      if (w < words.length - 1) t += unit * 7;
+    }
+    osc.start(start);
+    osc.stop(t + 0.05);
+    osc.onended = function () { if (mCtx === ctx) morseReset(); };
+    mRoot.classList.add("is-playing");
+    mBtn.textContent = "Stop";
+    var i = 0;
+    (function tick() {
+      if (mCtx !== ctx) return;
+      var now = ctx.currentTime;
+      while (i < timeline.length && timeline[i].t1 <= now) {
+        timeline[i].el.classList.remove("on");
+        timeline[i].el.classList.add("done");
+        i++;
+      }
+      if (i < timeline.length && timeline[i].t0 <= now) timeline[i].el.classList.add("on");
+      mRaf = window.requestAnimationFrame(tick);
+    })();
+  }
+
+  if (mBtn && mRoot) {
+    mBtn.addEventListener("click", function () {
+      if (mCtx) morseReset();
+      else morsePlay();
+    });
   }
 
   /* ---------- GEN L pledge ---------- */
